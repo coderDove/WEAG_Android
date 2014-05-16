@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppBaseTheme" parent="@style/Theme.Sherlock.Light">
+        <item name="android:listViewStyle">@style/Widget.ListView</item>
+    </style>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="meashure_temp">
+        <item>°C</item>
+        <item>F</item>
+    </string-array>
+
+    <string-array name="meashure_pressure">
+        <item>mmHg</item>
+        <item>mbar</item>
+        <item>kPa</item>
+        <item>inHg</item>
+        <item>psi</item>
+    </string-array>
+
+    <string-array name="meashure_speed">
+        <item>m/s</item>
+        <item>km/h</item>
+        <item>mi/h</item>
+    </string-array>
+</resources>

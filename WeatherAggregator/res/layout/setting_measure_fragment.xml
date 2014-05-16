@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="9dp"
+        android:text="@string/temperature" />
+
+    <RadioGroup
+        android:id="@+id/rgTemperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radiogroup_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbCelsius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/celsius" />
+
+        <RadioButton
+            android:id="@+id/rbFahrenheit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fahrenheit" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="9dp"
+        android:text="@string/wind_speed" />
+
+    <RadioGroup
+        android:id="@+id/rgSpeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radiogroup_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbMeter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/m_s" />
+
+        <RadioButton
+            android:id="@+id/rbKilometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/km_h" />
+
+        <RadioButton
+            android:id="@+id/rbMile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mi_h" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="9dp"
+        android:text="@string/pressure" />
+
+    <RadioGroup
+        android:id="@+id/rgPressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radiogroup_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbMmHg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mmHg"
+            android:textSize="@dimen/pressure_text_size" />
+
+        <RadioButton
+            android:id="@+id/rbMbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mbar"
+            android:textSize="@dimen/pressure_text_size" />
+
+        <RadioButton
+            android:id="@+id/rbKPa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/kPa"
+            android:textSize="@dimen/pressure_text_size" />
+
+        <RadioButton
+            android:id="@+id/rbInHg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/inHg"
+            android:textSize="@dimen/pressure_text_size" />
+
+        <RadioButton
+            android:id="@+id/rbPsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/psi"
+            android:textSize="@dimen/pressure_text_size" />
+    </RadioGroup>
+
+</LinearLayout>

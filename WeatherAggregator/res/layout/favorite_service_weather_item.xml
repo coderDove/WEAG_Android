@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <ImageView
+            android:id="@+id/imgRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="65dp"
+            android:src="@android:drawable/btn_star_big_off"/>
+
+    <TextView
+            android:id="@+id/tvHumidityValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvServiceName"
+            android:layout_centerHorizontal="true"
+            android:text="humidity val"/>
+
+    <TextView
+            android:id="@+id/tvHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgRating"
+            android:layout_toLeftOf="@+id/tvWindValue"
+            android:text="@string/humidity"/>
+
+    <TextView
+            android:id="@+id/tvTempValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvHumidity"
+            android:layout_toRightOf="@+id/tvWindValue"
+            android:text="temp val"/>
+
+    <TextView
+            android:id="@+id/tvWind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvWindValue"
+            android:layout_alignBottom="@+id/tvWindValue"
+            android:layout_toRightOf="@+id/tvTempValue"
+            android:text="@string/wind"/>
+
+    <TextView
+            android:id="@+id/tvTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgRating"
+            android:layout_toLeftOf="@+id/tvHumidityValue"
+            android:text="@string/temp"/>
+
+    <TextView
+            android:id="@+id/tvRatingIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTempValue"
+            android:layout_toRightOf="@+id/tvTemp"
+            android:text="index"/>
+
+    <ImageView
+            android:id="@+id/imgServiceLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvTemp"
+            android:layout_alignLeft="@+id/imgRating"
+            android:src="@android:drawable/ic_menu_report_image"/>
+
+    <TextView
+            android:id="@+id/tvWindValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/tvServiceName"
+            android:layout_below="@+id/tvHumidityValue"
+            android:text="wind val"/>
+
+    <TextView
+            android:id="@+id/tvServiceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvTemp"
+            android:layout_alignTop="@+id/imgServiceLogo"
+            android:layout_marginLeft="15dp"
+            android:text="service name"/>
+
+    <ImageView
+            android:id="@+id/imgCloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvHumidity"
+            android:layout_below="@+id/tvRatingIndex"
+            android:layout_marginTop="36dp"
+            android:src="@android:drawable/ic_menu_camera"/>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnUserCities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_city_list" />
+
+    <Button
+        android:id="@+id/btnUserServices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_service" />
+
+    <Button
+        android:id="@+id/btnUserMeasure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_unit" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about" />
+
+</LinearLayout>

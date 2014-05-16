@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- TwoWayView -->
+    <dimen name="two_way_view_width">70dp</dimen>
+    <dimen name="two_way_view_offset">0dp</dimen>
+    <dimen name="time_weather_item_width">60dp</dimen>
+
+
+</resources>

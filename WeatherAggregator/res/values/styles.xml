@@ -1,0 +1,103 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+    <style name="Widget.ListView" parent="@android:style/Widget.ListView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@null</item>
+        <item name="android:divider">@null</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:overScrollFooter">@android:color/transparent</item>
+        <item name="android:overScrollHeader">@android:color/transparent</item>
+        <item name="android:listSelector">@null</item>
+    </style>
+
+    <!-- Drawer List Item -->
+    <style name="Drawer.Widget.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/drawer_list_item_text_color</item>
+        <item name="android:textSize">@dimen/drawer_list_item_text_size</item>
+    </style>
+
+    <style name="TwoWayView">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Widget.TextView.OnlyOneLine" parent="@android:style/Widget.TextView">
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Widget.IcsSpinner" parent="Widget.Sherlock.Light.Spinner.DropDown.ActionBar">
+        <item name="android:dropDownWidth">290dp</item>
+        <item name="background">#18c3ef</item>
+        <item name="android:popupBackground">#ffffff</item>
+        <item name="android:divider">@android:color/black</item>
+        <item name="android:dividerHeight">3dp</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:dropDownSelector">@android:color/darker_gray</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">false</item>
+        <item name="android:scrollbarTrackVertical">@android:color/darker_gray</item>
+    </style>
+
+    <style name="Widget.CheckBox" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:progressDrawable">@drawable/favorite_service_selector</item>
+        <item name="android:indeterminateDrawable">@drawable/favorite_service_selector</item>
+        <item name="android:button">@drawable/favorite_service_selector</item>
+    </style>
+
+    <style name="Widget.ProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_holo_light</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_holo_light</item>
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+    </style>
+
+    <!-- Share Social -->
+    <style name="Widget.ShareSocial.EditText" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/share_social_edit_text</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:minLines">6</item>
+        <item name="android:gravity">top|left</item>
+        <item name="android:maxLines">12</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <!-- Detail weather -->
+    <style name="Widget.Detail.Weather.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/detail_weather_text_size</item>
+        <item name="android:padding">@dimen/detail_weather_text_padding</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Service favourite -->
+    <style name="Widget.Service.Favourite.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/service_favourite_text_size</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- Service item view -->
+    <style name="Widget.Service.Item.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/service_item_text_size</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:padding">@dimen/service_item_text_padding</item>
+    </style>
+
+    <style name="ParamLinerLayout">
+        <item name="android:layout_marginTop">@dimen/parm_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/parm_margin_bottom</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

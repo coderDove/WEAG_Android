@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent" >
+
+    <com.weatheraggregator.view.ServiceFavouriteView_
+        android:id="@+id/serviceFavourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <ListView
+        android:id="@+id/lvWeather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llContainer"
+        android:layout_below="@+id/serviceFavourite"
+        android:divider="@drawable/service_list_divider" />
+
+    <LinearLayout
+        android:id="@+id/llContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <com.googlecode.android.widgets.DateSlider.SliderContainer
+            android:id="@+id/dateSliderContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.googlecode.android.widgets.DateSlider.ScrollLayout
+                xmlns:app="http://schemas.android.com/apk/res/com.weatheraggregator.app"
+                style="@style/Scroller"
+                android:background="@android:color/black"
+                app:backgroundColor="@color/slide_date_background"
+                app:childHeight="75dp"
+                app:childTextSize="12"
+                app:childWidth="67dp"
+                app:imageSize="40dp"
+                app:labelerClass="com.googlecode.android.widgets.DateSlider.labeler.DayDateWeatherLabeler"
+                app:labelerFormat="%td %ta" />
+        </com.googlecode.android.widgets.DateSlider.SliderContainer>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/empty_msg"
+        android:visibility="gone" />
+
+</RelativeLayout>

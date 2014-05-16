@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <stroke
+        android:width="@dimen/share_social_width_stroke"
+        android:color="@color/share_social_stroke" />
+
+    <padding
+        android:bottom="@dimen/share_social_edit_text_padding"
+        android:left="@dimen/share_social_edit_text_padding"
+        android:right="@dimen/share_social_edit_text_padding"
+        android:top="@dimen/share_social_edit_text_padding" />
+
+    <corners android:radius="@dimen/share_social_edit_text_radius" />
+
+    <solid android:color="@android:color/white" />
+
+</shape>

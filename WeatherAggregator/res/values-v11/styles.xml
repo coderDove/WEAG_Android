@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:progressBarStyleHorizontal">@style/Widget.ProgressBar</item>
+    </style>
+
+    <style name="Widget.ProgressBar" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_holo_light</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_holo_light</item>
+    </style>
+
+</resources>

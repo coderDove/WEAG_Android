@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/service_favourite_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvServiceName"
+        style="@style/Widget.Service.Favourite.TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/service_favourite_padding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/service_favourite_padding" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="@dimen/service_favourite_parametr_padding" >
+
+                <LinearLayout
+                    style="@style/ParamLinerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/ivTempMax"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/max_temp" />
+
+                    <TextView
+                        android:id="@+id/tvTempMaxValue"
+                        style="@style/Widget.Service.Favourite.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/ParamLinerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/ivTempMin"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/min_temp" />
+
+                    <TextView
+                        android:id="@+id/tvTempMinValue"
+                        style="@style/Widget.Service.Favourite.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/ParamLinerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <ImageView
+                        android:id="@+id/ivWind"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/wind_6" />
+
+                    <TextView
+                        android:id="@+id/tvWindValue"
+                        style="@style/Widget.Service.Favourite.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/ParamLinerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/ivWet"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/humidity_icon" />
+
+                    <TextView
+                        android:id="@+id/tvWetValue"
+                        style="@style/Widget.Service.Favourite.TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCloud"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toLeftOf="@+id/linearLayout1"
+            android:layout_toRightOf="@+id/llTemp"
+            android:scaleType="fitCenter" />
+
+        <LinearLayout
+            android:id="@+id/llTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="left"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvTempCurrent"
+                style="@style/Widget.Service.Favourite.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/service_favourite_temp_text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/Widget.Service.Favourite.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/service_favourite_padding" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btnAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vote_selector_up"
+                android:enabled="false" />
+
+            <TextView
+                android:id="@+id/tvAgree"
+                style="@style/Widget.Detail.Weather.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tvDisagree"
+                style="@style/Widget.Detail.Weather.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/btnDisAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/vote_selector_down"
+                android:enabled="false" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@drawable/service_list_divider" />
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WeatherAggregator" basedir="." default="help">
+
+    <property file="local.properties" />
+	<property file="build.properties" />
+	<property name="test.runner" value="com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner" />
+
+	<!--<property file="ant.properties" /> -->
+
+    <property environment="env" />
+    <condition property="sdk.dir" value="${env.ANDROID_HOME}">
+        <isset property="env.ANDROID_HOME" />
+    </condition>
+
+    <loadproperties srcFile="project.properties" />
+
+    <!-- quick check on sdk.dir -->
+    <fail
+            message="sdk.dir is missing. Make sure to generate local.properties using 'android update project' or to inject it through the ANDROID_HOME environment variable."
+            unless="sdk.dir"
+    />
+
+    <import file="custom_rules.xml" optional="true" />
+
+    <import file="${sdk.dir}/tools/ant/build.xml" />
+
+	<!-- Custom compile task for androidannotations -->
+	<property name="generated.dir" value=".apt_generated" />
+    <property name="generated.absolute.dir" location="${generated.dir}" />
+    <property name="java.compilerargs" value="-s &apos;${generated.absolute.dir}&apos;" />
+	<property name="renderscript.opt.level" value="O0" />
+	<target name="custom-debug" depends="custom-rules-compile,debug"/>
+	<target name="-pre-compile">
+        <mkdir dir="${generated.absolute.dir}" />
+	</target>
+    <target name="custom-rules-compile" depends="-pre-build, -build-setup, -code-gen, -pre-compile">
+        <do-only-if-manifest-hasCode elseText="hasCode = false. Skipping...">
+            <!-- merge the project's own classpath and the tested project's classpath -->
+            <path id="project.javac.classpath">
+                <path refid="project.all.jars.path" />
+                <path refid="tested.project.classpath" />
+                <path path="${java.compiler.classpath}" />
+				<fileset dir="compile-libs" includes="*.jar"/>
+            </path>
+            <javac encoding="${java.encoding}"
+                    source="${java.source}" target="${java.target}"
+                    debug="true" extdirs="" includeantruntime="false"
+                    destdir="${out.classes.absolute.dir}"
+                    bootclasspathref="project.target.class.path"
+                    verbose="${verbose}"
+                    classpathref="project.javac.classpath"
+                    fork="${need.javac.fork}">
+                <src path="${source.absolute.dir}" />
+                <src path="${gen.absolute.dir}" />
+                <compilerarg line="${java.compilerargs}" />
+            </javac>
+
+            <!-- if the project is instrumented, intrument the classes -->
+            <if condition="${build.is.instrumented}">
+                <then>
+                    <echo level="info">Instrumenting classes from ${out.absolute.dir}/classes...</echo>
+
+                    <!-- build the filter to remove R, Manifest, BuildConfig -->
+                    <getemmafilter
+                            appPackage="${project.app.package}"
+                            libraryPackagesRefId="project.library.packages"
+                            filterOut="emma.default.filter"/>
+
+                    <!-- define where the .em file is going. This may have been
+                         setup already if this is a library -->
+                    <property name="emma.coverage.absolute.file" location="${out.absolute.dir}/coverage.em" />
+
+                    <!-- It only instruments class files, not any external libs -->
+                    <emma enabled="true">
+                        <instr verbosity="${verbosity}"
+                               mode="overwrite"
+                               instrpath="${out.absolute.dir}/classes"
+                               outdir="${out.absolute.dir}/classes"
+                               metadatafile="${emma.coverage.absolute.file}">
+                            <filter excludes="${emma.default.filter}" />
+                            <filter value="${emma.filter}" />
+                        </instr>
+                    </emma>
+                </then>
+            </if>
+
+            <!-- if the project is a library then we generate a jar file -->
+            <if condition="${project.is.library}">
+                <then>
+                    <echo level="info">Creating library output jar file...</echo>
+                    <property name="out.library.jar.file" location="${out.absolute.dir}/classes.jar" />
+                    <if>
+                        <condition>
+                            <length string="${android.package.excludes}" trim="true" when="greater" length="0" />
+                        </condition>
+                        <then>
+                            <echo level="info">Custom jar packaging exclusion: ${android.package.excludes}</echo>
+                        </then>
+                    </if>
+
+                    <propertybyreplace name="project.app.package.path" input="${project.app.package}" replace="." with="/" />
+
+                    <jar destfile="${out.library.jar.file}">
+                        <fileset dir="${out.classes.absolute.dir}"
+                                includes="**/*.class"
+                                excludes="${project.app.package.path}/R.class ${project.app.package.path}/R$*.class ${project.app.package.path}/BuildConfig.class"/>
+                        <fileset dir="${source.absolute.dir}" excludes="**/*.java ${android.package.excludes}" />
+                    </jar>
+                </then>
+            </if>
+
+        </do-only-if-manifest-hasCode>
+    </target>
+	
+	<target name="release"
+                depends="-set-release-mode, custom-rules-compile, -release-obfuscation-check, -package, -post-package, -release-prompt-for-password, -release-nosign, -release-sign, -post-build"
+                description="Builds the application in release mode.">
+    </target>
+	
+	<target name="-release-sign" if="has.keystore" >
+        <!-- only create apk if *not* a library project -->
+        <do-only-if-not-library elseText="Library project: do not create apk..." >
+            <sequential>
+                <property name="out.unaligned.file" location="${out.absolute.dir}/${ant.project.name}-release-unaligned.apk" />
+
+                <!-- Signs the APK -->
+                <echo level="info">Signing release apk...</echo>
+                <signapk
+                        input="${out.packaged.file}"
+                        output="${out.unaligned.file}"
+                        keystore="${key.store}"
+                        storepass="${key.store.password}"
+                        alias="${key.alias}"
+                        keypass="${key.alias.password}"/>
+
+                <!-- Zip aligns the APK -->
+                <zipalign-helper
+                        in.package="${out.unaligned.file}"
+                        out.package="${out.final.file}" />
+                <echo level="info">Release Package: ${out.final.file}</echo>
+            </sequential>
+        </do-only-if-not-library>
+        <record-build-info />
+    </target>
+	
+	<target name="debug" depends="-set-debug-mode, custom-rules-compile, -set-debug-files, -do-debug, -post-build"
+                description="Builds the application and signs it with a debug key.">
+    </target>
+	<target name="instrument" depends="-set-instrumented-mode, custom-rules-compile, -do-debug"
+                description="Builds an instrumented packaged.">
+        <!-- only create apk if *not* a library project -->
+        <do-only-if-not-library elseText="Library project: do not create apk..." >
+            <sequential>
+                <zipalign-helper in.package="${out.packaged.file}" out.package="${out.final.file}" />
+                <echo level="info">Instrumented Package: ${out.final.file}</echo>
+            </sequential>
+        </do-only-if-not-library>
+        <record-build-info />
+    </target>
+</project>

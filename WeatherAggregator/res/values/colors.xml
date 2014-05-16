@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Drawer List Item -->
+    <color name="drawer_list_item_text_color">#262525</color>
+    <color name="undo">#ACACAC</color>
+
+    <!-- ActionBar City Spinner -->
+    <color name="ab_title">#000000</color>
+    <color name="ab_city_spinner_city_text">#000000</color>
+    <color name="ab_city_spinner_region_text">#7C7C7C</color>
+    <color name="slide_date_background">#f5f5f5</color>
+    <!-- Share Social -->
+    <color name="share_social_stroke">#78E5CF</color>
+    <!-- Detail weather -->
+    <color name="detail_weather_background">#D6D6D6</color>
+    <!-- Main activity -->
+    <color name="main_background">#D6D6D6</color>
+    <!-- Service favourite -->
+    <color name="service_favourite_background">#D6D6D6</color>
+    <!-- Service item view -->
+    <color name="service_item_background">#D6D6D6</color>
+
+</resources>

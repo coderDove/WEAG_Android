@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">ShareSocialLibrary</string>
+
+    <!-- Share progress dialog -->
+    <string name="share_facebook">Share facebook</string>
+    <string name="share_twitter">Share twitter</string>
+
+    <!-- Twitter -->
+    <string name="twitter_logout">LogOut</string>
+    <string name="twitter">Twitter</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="twitter_logout_message">Do you want logout?</string>
+
+</resources>

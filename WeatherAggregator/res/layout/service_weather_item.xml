@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/service_item_background"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical"
+    android:padding="@dimen/service_item_padding" >
+
+    <LinearLayout
+        android:id="@+id/llIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/tvTempValue"
+            style="@style/Widget.Service.Item.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/service_item_text_padding"
+            android:gravity="bottom" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/llRating"
+        android:layout_toRightOf="@+id/llIcon"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvServiceName"
+            style="@style/Widget.Service.Item.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/ivMaxTemp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="@dimen/service_item_text_padding"
+                        android:src="@drawable/max_temp" />
+
+                    <ImageView
+                        android:id="@+id/ivMinTemp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="@dimen/service_item_text_padding"
+                        android:src="@drawable/min_temp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvMaxTempValue"
+                        style="@style/Widget.Service.Item.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvMinTempValue"
+                        style="@style/Widget.Service.Item.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/ivWind"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="@dimen/service_item_text_padding"
+                        android:src="@drawable/direction_0" />
+
+                    <ImageView
+                        android:id="@+id/ivWet"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="@dimen/service_item_text_padding"
+                        android:src="@drawable/humidity_icon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvWindValue"
+                        style="@style/Widget.Service.Item.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvWetValue"
+                        style="@style/Widget.Service.Item.TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvVoteFor"
+                style="@style/Widget.Service.Item.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvVoteAgain"
+                style="@style/Widget.Service.Item.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btnAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/service_item_text_padding"
+                android:background="@drawable/vote_selector_up" />
+
+            <ImageButton
+                android:id="@+id/btnDisagree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/service_item_text_padding"
+                android:background="@drawable/vote_selector_down" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

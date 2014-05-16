@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/tvCity"
+            style="@style/Widget.TextView.OnlyOneLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ab_city_spinner_inner_padding"
+            android:text="Test"
+            android:textColor="@color/ab_city_spinner_city_text"
+            android:textSize="@dimen/ab_city_spinner_city_text_size"/>
+
+    <TextView
+            android:id="@+id/tvRegion"
+            style="@style/Widget.TextView.OnlyOneLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ab_city_spinner_inner_padding"
+            android:text="Test"
+            android:textColor="@color/ab_city_spinner_region_text"
+            android:textSize="@dimen/ab_city_spinner_region_text_size"/>
+
+</LinearLayout>

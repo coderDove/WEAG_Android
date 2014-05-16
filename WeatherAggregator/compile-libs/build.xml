@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="WeatherAggregator">
+			  
+			  <property file="local.properties" />
+<property file="ant.properties" />
+<loadproperties srcFile="project.properties" />
+
+<import file="${sdk.dir}/tools/ant/build.xml" />
+
+<property name="build.target" value="instrument"/>
+<property name="renderscript.opt.level" value="O0"/>
+			  
+    <property environment="env"/>
+    <property name="WeatherAgregatorTest.location" value="WeatherAgregatorTestTest"/>
+    <property name="ECLIPSE_HOME" value="../../../../Eclipse Kepler/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="Android 4.3.libraryclasspath">
+        <pathelement location="../../../../android-sdk/platforms/android-18/android.jar"/>
+    </path>
+    <path id="Android Private Libraries.libraryclasspath">
+        <pathelement location="libs/universal-image-loader-1.9.0.jar"/>
+        <pathelement location="../ShareSocialLibrary/libs/twitter4j-core-3.0.5.jar"/>
+        <pathelement location="../ShareSocialLibrary/libs/signpost-core-1.2.1.2.jar"/>
+        <pathelement location="libs/androidannotations-api-2.7.1.jar"/>
+        <pathelement location="libs/gson-2.2.4.jar"/>
+        <pathelement location="../ShareSocialLibrary/libs/android-support-v4.jar"/>
+        <pathelement location="../ShareSocialLibrary/google-play-services_lib/libs/google-play-services.jar"/>
+        <pathelement location="../ShareSocialLibrary/libs/signpost-commonshttp4-1.2.1.2.jar"/>
+        <pathelement location="libs/dagger-1.1.0.jar"/>
+    </path>
+    <path id="Android Dependencies.libraryclasspath">
+        <pathelement location="../EventBus/EventBus/bin/eventbus.jar"/>
+        <pathelement location="../drag-sort-listview/bin/drag-sort-listview.jar"/>
+        <pathelement location="../DateSliderLibrary/bin/datesliderlibrary.jar"/>
+        <pathelement location="../slidingmenu/bin/slidingmenu.jar"/>
+        <pathelement location="../actionbarsherlock/bin/actionbarsherlock.jar"/>
+        <pathelement location="../ActiveAndrioid/bin/activeandrioid.jar"/>
+        <pathelement location="../ShareSocialLibrary/bin/sharesociallibrary.jar"/>
+        <pathelement location="../ShareSocialLibrary/facebook-android-sdk-3.7/facebook/bin/facebooksdk.jar"/>
+        <pathelement location="../ShareSocialLibrary/google-play-services_lib/bin/google-play-services_lib.jar"/>
+    </path>
+    <path id="WeatherAggregator.classpath">
+        <path refid="Android 4.3.libraryclasspath"/>
+        <path refid="Android Private Libraries.libraryclasspath"/>
+        <path refid="Android Dependencies.libraryclasspath"/>
+        <pathelement location="bin/classes"/>
+        <pathelement location="libs/androidannotations-api-2.7.1.jar"/>
+        <pathelement location="libs/universal-image-loader-1.9.0.jar"/>
+        <pathelement location="libs/android-support-v4.jar"/>
+        <pathelement location="libs/dagger-1.1.0.jar"/>
+        <pathelement location="libs/gson-2.2.4.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin/classes"/>
+        <copy includeemptydirs="false" todir="bin/classes">
+            <fileset dir=".apt_generated">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin/classes">
+            <fileset dir="gen">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path=".apt_generated"/>
+            <src path="src"/>
+            <src path="gen"/>
+            <classpath refid="WeatherAggregator.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${WeatherAgregatorTest.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${WeatherAgregatorTest.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+	
+	
+	<property name="generated.dir" value=".apt_generated" />
+    <property name="generated.absolute.dir" location="${generated.dir}" />
+    <property name="java.compilerargs" value="-s &apos;${generated.absolute.dir}&apos;" />
+	
+	<target name="-pre-compile">
+        <mkdir dir="${generated.absolute.dir}" />
+    </target>
+	<target name="-compile" depends="-pre-build, -build-setup, -code-gen, -pre-compile">
+        <do-only-if-manifest-hasCode elseText="hasCode = false. Skipping...">
+            <!-- merge the project's own classpath and the tested project's classpath -->
+            <path id="project.javac.classpath">
+                <path refid="project.all.jars.path" />
+                <path refid="tested.project.classpath" />
+                <path path="${java.compiler.classpath}" />
+				<fileset dir="compile-libs" includes="*.jar"/>
+            </path>
+            <javac encoding="${java.encoding}"
+                    source="${java.source}" target="${java.target}"
+                    debug="true" extdirs="" includeantruntime="false"
+                    destdir="${out.classes.absolute.dir}"
+                    bootclasspathref="project.target.class.path"
+                    verbose="${verbose}"
+                    classpathref="project.javac.classpath"
+                    fork="${need.javac.fork}">
+                <src path="${source.absolute.dir}" />
+                <src path="${gen.absolute.dir}" />
+                <compilerarg line="${java.compilerargs}" />
+            </javac>
+
+            <!-- if the project is instrumented, intrument the classes -->
+            <if condition="${build.is.instrumented}">
+                <then>
+                    <echo level="info">Instrumenting classes from ${out.absolute.dir}/classes...</echo>
+
+                    <!-- build the filter to remove R, Manifest, BuildConfig -->
+                    <getemmafilter
+                            appPackage="${project.app.package}"
+                            libraryPackagesRefId="project.library.packages"
+                            filterOut="emma.default.filter"/>
+
+                    <!-- define where the .em file is going. This may have been
+                         setup already if this is a library -->
+                    <property name="emma.coverage.absolute.file" location="${out.absolute.dir}/coverage.em" />
+
+                    <!-- It only instruments class files, not any external libs -->
+                    <emma enabled="true">
+                        <instr verbosity="${verbosity}"
+                               mode="overwrite"
+                               instrpath="${out.absolute.dir}/classes"
+                               outdir="${out.absolute.dir}/classes"
+                               metadatafile="${emma.coverage.absolute.file}">
+                            <filter excludes="${emma.default.filter}" />
+                            <filter value="${emma.filter}" />
+                        </instr>
+                    </emma>
+                </then>
+            </if>
+
+            <!-- if the project is a library then we generate a jar file -->
+            <if condition="${project.is.library}">
+                <then>
+                    <echo level="info">Creating library output jar file...</echo>
+                    <property name="out.library.jar.file" location="${out.absolute.dir}/classes.jar" />
+                    <if>
+                        <condition>
+                            <length string="${android.package.excludes}" trim="true" when="greater" length="0" />
+                        </condition>
+                        <then>
+                            <echo level="info">Custom jar packaging exclusion: ${android.package.excludes}</echo>
+                        </then>
+                    </if>
+
+                    <propertybyreplace name="project.app.package.path" input="${project.app.package}" replace="." with="/" />
+
+                    <jar destfile="${out.library.jar.file}">
+                        <fileset dir="${out.classes.absolute.dir}"
+                                includes="**/*.class"
+                                excludes="${project.app.package.path}/R.class ${project.app.package.path}/R$*.class ${project.app.package.path}/BuildConfig.class"/>
+                        <fileset dir="${source.absolute.dir}" excludes="**/*.java ${android.package.excludes}" />
+                    </jar>
+                </then>
+            </if>
+
+        </do-only-if-manifest-hasCode>
+    </target>
+</project>
